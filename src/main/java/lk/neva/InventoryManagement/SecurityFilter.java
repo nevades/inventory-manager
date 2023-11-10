@@ -35,7 +35,7 @@ public class SecurityFilter implements Filter {
         String uri = req.getRequestURI();
         System.out.println(uri);
         if (req.getSession().getAttribute("uid") == null) {
-            if (!(uri.endsWith("/login"))) {
+            if (!(uri.endsWith("/login") | uri.contains("/Files"))) {
                 resp.sendRedirect("login");
                 return;
             }
